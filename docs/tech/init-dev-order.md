@@ -43,22 +43,10 @@
 - `lib/validations/*.ts` - Zod Schema
 - `lib/constants/*.ts` - 常量配置
 
----
-
-## 第三阶段：环境搭建与全局配置（Infrastructure）
-
-1. **项目初始化：** 让 AI 给出基础脚手架安装命令。
-2. **全局样式与主题：** 定义颜色、字体、间距（如 `tailwind.config.js`）。
-3. **布局组件 (Layouts)：** 开发顶栏、侧边栏、底栏等全局通用布局。
-
-**产出物：**
-- 项目基础配置文件
-- 全局样式变量
-- `components/layout/*.tsx` - 布局组件
 
 ---
 
-## 第四阶段：组件库与原子开发（Component-First）
+## 第三阶段：组件库与原子开发（Component-First）
 
 不要直接写页面，先写零件。
 
@@ -74,7 +62,7 @@
 
 ---
 
-## 第五阶段：状态管理与 Mock 数据（State & Logic）
+## 第四阶段：状态管理与 Mock 数据（State & Logic）
 
 1. **状态管理逻辑：** 定义全局 Store 或 Hooks（如 `useAuth`, `useTasks`）。
 2. **Mock 接口：** 在后端 API 没写好前，让 AI 编写 Mock 数据，确保前端能跑通。
@@ -87,7 +75,7 @@
 
 ---
 
-## 第六阶段：页面装配与路由（Assembly）
+## 第五阶段：页面装配与路由（Assembly）
 
 1. **页面组合：** 告诉 AI："现在请帮我创建 `Dashboard` 页面，调用 `useTasks` Hook 获取数据，并循环渲染 `TaskCard` 组件。"
 2. **路由配置：** 设置页面间的跳转逻辑。
@@ -127,8 +115,7 @@
 | --- | --- | --- | --- |
 | 1 | **需求分析** | 生成功能清单和页面结构 | 需求文档、路由规划 |
 | 2 | **类型定义** | 生成 `types/*.ts` 和 Zod Schema | 类型文件、校验 Schema |
-| 3 | **环境搭建** | 生成 `Layout` 和全局配置 | 布局组件、样式配置 |
-| 4 | **原子组件** | 生成 `Button`, `Input`, `Card` 等 | UI 组件库 |
-| 5 | **Hooks 封装** | 处理数据请求、状态切换逻辑 | Store、Hooks |
-| 6 | **页面组装** | 将零件拼成 `Page`，注入数据 | 完整页面 |
+| 3 | **原子组件** | 生成 `Button`, `Input`, `Card` 等 | UI 组件库 |
+| 4 | **Hooks 封装** | 处理数据请求、状态切换逻辑 | Store、Hooks |
+| 5 | **页面组装** | 将零件拼成 `Page`，注入数据 | 完整页面 |
 
