@@ -4,7 +4,7 @@
 | --- | --- |
 | **状态** | `草稿` |
 | **最后更新** | 2026-01-19 |
-| **关联文档** | [PRD](../prd-zh.md) · [详细架构](./frontend-architecture-zh.md) |
+| **关联文档** | [PRD](../prd-zh.md)  |
 
 ---
 
@@ -291,13 +291,3 @@ pet-soul/
   }
 }
 ```
-
----
-
-## 8. 详细文档索引
-
-| 文档 | 内容 |
-| --- | --- |
-| [frontend-architecture-zh.md](./frontend-architecture-zh.md) | 详细组件设计、状态管理、API 集成、测试策略 |
-| [tech-evaluation-zh.md](./tech-evaluation-zh.md) | 全栈技术评估、后端选型、基础设施、环境变量 |
-| [implementation-guide-zh.md](./implementation-guide-zh.md) | 分步实现指南 |
