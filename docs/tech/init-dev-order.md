@@ -132,15 +132,3 @@
 | 5 | **Hooks 封装** | 处理数据请求、状态切换逻辑 | Store、Hooks |
 | 6 | **页面组装** | 将零件拼成 `Page`，注入数据 | 完整页面 |
 
----
-
-## 阶段任务文档索引
-
-| 阶段 | 任务文档 | 状态 |
-| --- | --- | --- |
-| 第一阶段 | [phase-1-blueprint.md](./phase-1-blueprint.md) | ✅ 已生成 |
-| 第二阶段 | phase-2-types.md | ⬜ 待生成 |
-| 第三阶段 | phase-3-infrastructure.md | ⬜ 待生成 |
-| 第四阶段 | phase-4-components.md | ⬜ 待生成 |
-| 第五阶段 | phase-5-state.md | ⬜ 待生成 |
-| 第六阶段 | phase-6-assembly.md | ⬜ 待生成 |
