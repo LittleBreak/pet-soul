@@ -1,4 +1,5 @@
 import type { ErrorCode } from '@/types/api';
+import { AppError } from '@/types';
 
 /**
  * 错误信息映射
@@ -34,7 +35,6 @@ export const ERROR_STATUS_CODES: Record<ErrorCode, number> = {
  * 创建应用错误
  */
 export function createAppError(code: ErrorCode, customMessage?: string) {
-  const { AppError } = require('@/types');
   return new AppError(
     code,
     customMessage ?? ERROR_MESSAGES[code],
