@@ -40,8 +40,7 @@ Based on: `docs/tech/phase-3-components-zh.md`
 
 ## 4. Layout Components
 
-- [ ] 4.1 Create `MainNav` (desktop navigation)
-- [ ] 4.2 Create `MobileTabBar` (mobile bottom navigation)
+- [ ] 4.1 Create `MobileTabBar` (mobile bottom navigation)
 
 ## 5. Shared Components
 
