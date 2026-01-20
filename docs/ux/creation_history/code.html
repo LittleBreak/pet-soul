@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Creations</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#38e07b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#122017",
+                        "surface-dark": "#1b2e23",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5 transition-all duration-300">
+<div class="px-4 py-3 flex items-center justify-between">
+<div class="w-10">
+<!-- Spacer to balance layout -->
+</div>
+<h1 class="text-xl font-extrabold tracking-tight text-center flex-1">
+                My Creations
+            </h1>
+<button aria-label="Filter creations" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl dark:text-primary">tune</span>
+</button>
+</div>
+</header>
+<!-- Pull to refresh hint area -->
+<div class="w-full flex justify-center items-center py-2 opacity-60">
+<span class="material-symbols-outlined text-primary animate-spin text-sm" style="animation-duration: 2s;">refresh</span>
+</div>
+<!-- Main Content: Masonry Grid -->
+<main class="flex-1 w-full max-w-md mx-auto px-4 pb-28">
+<!-- Masonry Layout using columns -->
+<div class="columns-2 gap-4 space-y-4">
+<!-- Card 1 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A playful beagle dog tilting its head sideways" class="w-full h-auto object-cover aspect-[4/5]" data-alt="A playful beagle dog tilting its head sideways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2MX9sbUFbDKINrh9E9VZcBTVk8UqQK9rVAGLOFDr3PuWl-iNW1V6OcgjY9nAqtYJS3B5beMbVnY0LzcAp9N6pWSTwArQXjrCOHdD9iRI5jGz2Nc0ZgM4pGAzhEMHCB4OaDRULKnaWTkD2AxEpbONPo_-vcPYhBfaaewm6Fi04w6ravoXwgj8rZWDV9ljFCuYoFK1Zy7-B5N29pgmYpzEkRA2p4_YJxBXToW5sdTiaFiTuy4RKCwwwSYDgENNHTJoRkyTBfD1Acg"/>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<!-- Floating Tag -->
+<div class="absolute top-3 right-3">
+<span class="bg-primary text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Sassy
+                        </span>
+</div>
+<!-- Content -->
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Side Eye</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>2h ago</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A close up of a cat staring intensely into the camera" class="w-full h-auto object-cover aspect-[3/4]" data-alt="A close up of a cat staring intensely into the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3C15JH9BYbITHFI5czoe5GsFVZg2Mc3WqShoWWzcWMyM6e5o4SHD4rerrOFrPIX0jnN-DHif5ucsPmnBh2V7F5KXTSN92XZNX-VLzw_5tdc5EeFSzGqTwBcsfQiXmSubnflC9S8-5qVrBaTXkjCF87_869xT3gbclGEijISI49e8LvT8m1mFfYqn2eyZhfhKEhVo0y2Id9306Z73dWYphbDiEpVzl2WSVFgKtxB1Y6oyncyRLd34IK65PxlV5F3sCHvLKPKWDNQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 right-3">
+<span class="bg-primary/90 backdrop-blur-sm text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Plotting
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Mastermind</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Yesterday</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A golden retriever dog with a big happy smile" class="w-full h-auto object-cover aspect-square" data-alt="A golden retriever dog with a big happy smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7D_7pbyj6knpdIHE24HHkglbd8hkLykkfSmMWqyGiFU_vmR2hPXhqDTnKZp3sZIfZ7XvQJvPPQBxY2Wm03LTrwqkxd8KLCvuCfjCxo61KxjdPOImEmyEtQagopmEgmQoXZBuXNUgUnMYIberL0Rpx5Hc3S3fFzoOAV9Jij1aqTHHP0IpjzXV7AN1kiRG9K82at_SB0pegTBrm3IpGsXrujXTpZwoy7qF1-mJflhvMgLwuEfRPJAVZA-MtaLv80bassYpObB8_tA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 right-3">
+<span class="bg-primary text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Ecstatic
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Treat Time?</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Oct 24</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A cat sleeping peacefully curled up" class="w-full h-auto object-cover aspect-[3/5]" data-alt="A cat sleeping peacefully curled up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBauE2rPUlRWDoyYlT0tWXmvEoNaCkRQJB1PDQiiC17BunFe-Q7YU9moirNHLDeuRhe_VpPQBxvObUkFZeosPJ8IlEWDU_aOLOJh_WP6qRytuuy08xZGO4XqiMAKjmZEpJfPaOJPa17JMcgcmnKzGqbnErE3-BLLf-LdzFX50ZR5J25x-LJoV5CgARJiyH9Zr5mE-qXXr4E9TvIJFVUyqVg3jCCSzR5aSS4WmJO3o6nvpjGRD4I8q2HfpQbobvUHaBmXgjBeMVS0A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 right-3">
+<span class="bg-zinc-200 text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Zen Mode
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Nap King</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Oct 20</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A french bulldog looking curious and confused" class="w-full h-auto object-cover aspect-[4/5]" data-alt="A french bulldog looking curious and confused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHX65rRt8bXxKn1mhd-oGAGQjsauDZjzkWJmYXOAAdVXJ6klLOxSWIXoPEBo1dV3Fdws7KDwxzoVetYXAfDmBFsthDblpXA9xycCey9moIZFiStB0lQxOxnfmTkQ4mKb48iEZmAyBEqRrOGWvFR2NBJ9M1R_kvrYEfXFdcnT6H8RyqDubujUCaG_pYvK-NFt5XL03F0gh4Iu6B1j6FYdqbQMxBnkT9xJbW8IVPUGcqHStKEcbsaLYrKbZUAgyIqcERDROr__uE-Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 right-3">
+<span class="bg-primary text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Confused
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Huh?</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Oct 18</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="break-inside-avoid relative group cursor-pointer active:scale-[0.98] transition-transform duration-200">
+<div class="relative overflow-hidden rounded-xl bg-surface-dark shadow-lg shadow-black/20">
+<img alt="A cat wearing sunglasses looking cool" class="w-full h-auto object-cover aspect-square" data-alt="A cat wearing sunglasses looking cool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbThwqdySCvvv8-Z1GdBYOpU4V2_mwIf7OKx93OeSEXNN1QLNKXfwWgQxooKTxGdSTu8guzphqEoxqQ8Iw1p_vGRN9cOn1zEbHzpoj2Q5j-Rmbl2Y_U1ORG67GWp2aEQo5tAFbYSbE6Epd-9Y_0USz5YBxPSan_655n7DdcJH5496NSwb8kEJDCy68ry8QzkiM5upCscKWqnWmxyV7bPP3_rOayXN0wmpOii4n3UMmcmQwYiYKEK2qxvh0TOgeqiAx6ObWZbvarw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 right-3">
+<span class="bg-orange-400 text-background-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                            Cool
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4">
+<h3 class="text-white font-bold text-lg leading-tight mb-1">Vibes</h3>
+<div class="flex items-center gap-1 text-white/60 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Oct 15</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Indicator -->
+<div class="mt-8 flex justify-center pb-8">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-dark text-primary text-sm font-bold shadow-lg active:scale-95 transition-all">
+                Load more memories
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#1b3124]/95 dark:bg-[#0f1c14]/90 backdrop-blur-lg border-t border-white/5 pb-safe pt-2">
+<div class="flex items-center justify-around px-2 pb-4">
+<!-- Home -->
+<a class="group flex flex-col items-center gap-1 w-16 p-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors text-[28px]">home</span>
+<span class="text-[10px] font-medium text-white/50 group-hover:text-primary transition-colors">Home</span>
+</a>
+<!-- Create -->
+<a class="group flex flex-col items-center gap-1 w-16 p-1 transition-colors" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors text-[28px]">add_circle</span>
+</div>
+<span class="text-[10px] font-medium text-white/50 group-hover:text-primary transition-colors">Create</span>
+</a>
+<!-- History (Active) -->
+<a class="group flex flex-col items-center gap-1 w-16 p-1" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-primary fill-current text-[28px] drop-shadow-[0_0_8px_rgba(56,224,123,0.3)]" style="font-variation-settings: 'FILL' 1;">history</span>
+<!-- Small indicator dot -->
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+</div>
+<span class="text-[10px] font-bold text-primary">History</span>
+</a>
+<!-- Profile -->
+<a class="group flex flex-col items-center gap-1 w-16 p-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors text-[28px]">person</span>
+<span class="text-[10px] font-medium text-white/50 group-hover:text-primary transition-colors">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Safe area padding for bottom nav -->
+<div class="h-6"></div>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Share Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#38e07b",
+              "background-light": "#f6f8f7",
+              "background-dark": "#122017",
+              "sheet-dark": "#1b3124",
+              "wechat": "#07C160",
+              "redbook": "#FF2442",
+              "weibo": "#E6162D",
+            },
+            fontFamily: {
+              "display": ["Public Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "1rem", 
+              "lg": "2rem", 
+              "xl": "3rem", 
+              "2xl": "4rem",
+              "full": "9999px"
+            },
+            animation: {
+                "slide-up": "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+            },
+            keyframes: {
+                slideUp: {
+                    "0%": { transform: "translateY(100%)" },
+                    "100%": { transform: "translateY(0)" },
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-white overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-background-dark group/design-root">
+<!-- Background Content (Simulating the screen behind the modal) -->
+<div class="absolute inset-0 z-0 flex flex-col items-center justify-center p-6 opacity-40 scale-95 blur-[2px] transition-all">
+<div class="w-full h-full max-w-md bg-cover bg-center rounded-2xl overflow-hidden relative shadow-2xl" data-alt="A cute cat looking upwards with curious eyes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWlXhcVNsVTPOmm6xH_pxVXoY0YtOOB2KMZio4osbpCNqvO0ahgmTzGq7PM_RbB0DdZz8RTCr6svX5g9LGmQkt2pQL2SAvS8-3OZtEOrQAafP7jO3qHkD1nAjLUBPdBSkinzlyxeMo899SpaN5gQFVJrfx2kIvK_MCK1x3pBI-uYhoo0uyiB0ZowoFqf_T83hveIKeF0S9NmxjtKBpYV78mZFZUqa_jEoKVP_h5yZsAfhRQA2sBAMxuaRUnUj_YCX7UcyL7HgGgg');">
+<!-- Simulated UI Elements of the underlying app -->
+<div class="absolute top-4 left-4 right-4 flex justify-between">
+<div class="h-10 w-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+</div>
+<div class="h-10 w-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white">more_horiz</span>
+</div>
+</div>
+<div class="absolute bottom-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent pt-32">
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
+<p class="text-lg font-bold">"I wonder if the red dot is also looking for me..."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Overlay -->
+<div class="absolute inset-0 z-10 bg-black/60 backdrop-blur-sm flex flex-col justify-end">
+<!-- Bottom Sheet -->
+<div class="w-full bg-[#1b2b22] rounded-t-[32px] animate-slide-up shadow-2xl ring-1 ring-white/5">
+<!-- Handle -->
+<div class="w-full flex justify-center pt-3 pb-2">
+<div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<!-- Content -->
+<div class="px-6 pt-2 pb-10 flex flex-col gap-6">
+<!-- Header Section -->
+<div class="flex items-center gap-4 py-2">
+<!-- Preview Thumbnail -->
+<div class="h-16 w-16 shrink-0 rounded-2xl bg-cover bg-center ring-2 ring-white/10 shadow-lg" data-alt="Thumbnail preview of the cat photo being shared" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3TsO3ZbWea8A1rAAmygU-DUJm8Zi4AOXQhedPOvFXcUpCKA4OTuK3oe7YyM6rK6gjScixGuOILCvA3xoClDEBQDvUoc3qlq0Td9Kj-t01H2Nq-PN73H0ir2U7N1J_WEt6KF7pnC4Q0WBOfLn2KUWvFW7UT8AeVzuM9t36z-e4KwfueTqXteDiSJATGBGDXlVTTXACWms6BCP_9N7eBqDKdKamWWqCqYXuz5eXrtmQVJi6nDbrMz1lY4wBvMCsqLsZEqRmKDePaA');">
+</div>
+<!-- Title -->
+<div class="flex flex-col">
+<h2 class="text-xl font-bold text-white leading-tight">Share to</h2>
+<p class="text-white/50 text-sm">Spread the joy of Mittens' thought!</p>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-white/5"></div>
+<!-- Icon Grid -->
+<div class="grid grid-cols-4 gap-y-6">
+<!-- WeChat -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-[#07C160] flex items-center justify-center shadow-lg transition-transform group-active:scale-90">
+<span class="material-symbols-outlined text-white text-[28px]">chat_bubble</span>
+</div>
+<span class="text-xs font-medium text-white/80">WeChat</span>
+</div>
+<!-- Moments -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-[#07C160]/90 border-2 border-white/10 flex items-center justify-center shadow-lg transition-transform group-active:scale-90 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
+<span class="material-symbols-outlined text-white text-[28px] relative z-10">shutter_speed</span>
+</div>
+<span class="text-xs font-medium text-white/80">Moments</span>
+</div>
+<!-- Little Red Book -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-[#FF2442] flex items-center justify-center shadow-lg transition-transform group-active:scale-90">
+<span class="material-symbols-outlined text-white text-[28px]">auto_stories</span>
+</div>
+<span class="text-xs font-medium text-white/80">Xiaohongshu</span>
+</div>
+<!-- Weibo -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-[#E6162D] flex items-center justify-center shadow-lg transition-transform group-active:scale-90">
+<span class="material-symbols-outlined text-white text-[28px]">visibility</span>
+</div>
+<span class="text-xs font-medium text-white/80">Weibo</span>
+</div>
+<!-- Copy Link -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg transition-transform group-active:scale-90">
+<span class="material-symbols-outlined text-[#122017] text-[28px]">link</span>
+</div>
+<span class="text-xs font-medium text-white/80">Copy Link</span>
+</div>
+<!-- Save Image -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg transition-transform group-active:scale-90">
+<span class="material-symbols-outlined text-[#122017] text-[28px]">download</span>
+</div>
+<span class="text-xs font-medium text-white/80">Save Image</span>
+</div>
+</div>
+<!-- Cancel Button -->
+<div class="mt-2">
+<button class="w-full h-14 rounded-full bg-[#264532] text-primary hover:bg-[#2d523b] active:bg-[#1f3829] transition-colors flex items-center justify-center font-bold text-lg tracking-wide">
+                            Cancel
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

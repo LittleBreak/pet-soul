@@ -1,26 +1,386 @@
 @import "tailwindcss";
 
+/* =============================================================================
+   PetSoul Design System
+   Based on: docs/tech/phase-3-components-zh.md
+   Updated from: docs/ux/pet_profile_editor/
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. CSS Variables (Light Mode Default)
+   ----------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary - 清新薄荷绿 */
+  --primary-50: #edfdf4;
+  --primary-100: #d3fbe4;
+  --primary-200: #aaf5cd;
+  --primary-300: #72ecaf;
+  --primary-400: #38e07b;
+  --primary-500: #38e07b;
+  --primary-600: #0fbe5a;
+  --primary-700: #0d9548;
+  --primary-800: #0f763c;
+  --primary-900: #0e6133;
+  --primary-950: #03361a;
+
+  /* Surface Colors */
+  --surface-light: #ffffff;
+  --surface-dark: #1c3024;
+  --surface-dark-hover: #25382d;
+
+  /* Background Colors */
+  --background-light: #f6f8f7;
+  --background-dark: #122017;
+
+  /* Neutral - Slate */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* Glass Effect */
+  --glass-bg: rgba(246, 248, 247, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.2);
+
+  /* Semantic Colors - Light Mode */
+  --background: var(--background-light);
+  --foreground: var(--slate-900);
+  --muted: var(--slate-100);
+  --muted-foreground: var(--slate-500);
+  --card: var(--surface-light);
+  --card-foreground: var(--slate-900);
+  --border: var(--slate-200);
+  --input: var(--surface-light);
+  --ring: var(--primary-500);
+
+  /* Success/Error */
+  --success: var(--primary-500);
+  --error: #ef4444;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -----------------------------------------------------------------------------
+   2. Dark Mode Variables (Class-based)
+   ----------------------------------------------------------------------------- */
+.dark {
+  /* Glass Effect - Dark */
+  --glass-bg: rgba(18, 32, 23, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  /* Semantic Colors - Dark */
+  --background: var(--background-dark);
+  --foreground: #ffffff;
+  --muted: var(--surface-dark);
+  --muted-foreground: var(--slate-400);
+  --card: var(--surface-dark);
+  --card-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: var(--surface-dark);
+  --ring: var(--primary-400);
 }
 
+/* Also support prefers-color-scheme for auto mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.light) {
+    /* Glass Effect - Dark */
+    --glass-bg: rgba(18, 32, 23, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.05);
+
+    /* Semantic Colors - Dark */
+    --background: var(--background-dark);
+    --foreground: #ffffff;
+    --muted: var(--surface-dark);
+    --muted-foreground: var(--slate-400);
+    --card: var(--surface-dark);
+    --card-foreground: #ffffff;
+    --border: rgba(255, 255, 255, 0.05);
+    --input: var(--surface-dark);
+    --ring: var(--primary-400);
   }
 }
 
+/* -----------------------------------------------------------------------------
+   3. Tailwind Theme Configuration (v4 @theme directive)
+   ----------------------------------------------------------------------------- */
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Surface Colors */
+  --color-surface: var(--card);
+  --color-surface-light: var(--surface-light);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-hover: var(--surface-dark-hover);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+
+  /* Primary - 清新薄荷绿 */
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+  --color-primary: var(--primary-500);
+  --color-primary-foreground: var(--background-dark);
+
+  /* Slate/Neutral */
+  --color-slate-50: var(--slate-50);
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-900: var(--slate-900);
+  --color-slate-950: var(--slate-950);
+
+  /* Success/Error */
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-destructive: var(--error);
+  --color-destructive-foreground: #ffffff;
+
+  /* Fonts */
+  --font-sans: var(--font-noto-sans), "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-public-sans), "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-public-sans), "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-noto-sans), "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* Typography Scale */
+  --text-xs: 0.625rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+
+  /* Border Radius - Updated for rounded UI */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-normal: 200ms;
+  --transition-slow: 300ms;
+
+  /* Animation */
+  --animate-spin: spin 1s linear infinite;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce: bounce 1s infinite;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Keyframe Animations
+   ----------------------------------------------------------------------------- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   5. Base Styles
+   ----------------------------------------------------------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms, color 200ms;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Body text uses Noto Sans */
+p, span, label, input, textarea, select {
+  font-family: var(--font-body);
+}
+
+/* -----------------------------------------------------------------------------
+   6. Utility Classes
+   ----------------------------------------------------------------------------- */
+
+/* Glass Effect */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Button press effect */
+.active-scale {
+  transition: transform var(--transition-fast) ease-out;
+}
+
+.active-scale:active {
+  transform: scale(0.95);
+}
+
+/* Card hover lift effect */
+.hover-lift {
+  transition: transform var(--transition-normal) ease-out,
+              box-shadow var(--transition-normal) ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Focus ring for accessibility */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 25%,
+    var(--slate-200) 50%,
+    var(--muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.dark .skeleton,
+:root:not(.light) .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-dark) 25%,
+    var(--surface-dark-hover) 50%,
+    var(--surface-dark) 75%
+  );
+  background-size: 200% 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--surface-dark) 25%,
+      var(--surface-dark-hover) 50%,
+      var(--surface-dark) 75%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fade-in var(--transition-normal) ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up var(--transition-slow) ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--transition-normal) ease-out;
 }
