@@ -97,7 +97,14 @@ function CreditDisplay({
       </div>
 
       {!isPremium && (
-        <div className="relative h-2 w-full overflow-hidden rounded-full bg-muted">
+        <div
+          role="progressbar"
+          aria-valuenow={used}
+          aria-valuemin={0}
+          aria-valuemax={total}
+          aria-label={`${used} of ${total} credits used`}
+          className="relative h-2 w-full overflow-hidden rounded-full bg-muted"
+        >
           <div
             className={cn(
               "h-full transition-all duration-300",

@@ -36,6 +36,8 @@ function PersonaSelector({
       {/* Mobile: Horizontal scroll with snap */}
       <div
         ref={scrollContainerRef}
+        role="listbox"
+        aria-label="Select a persona"
         className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:hidden"
         style={{
           scrollbarWidth: "none",
@@ -54,7 +56,11 @@ function PersonaSelector({
       </div>
 
       {/* Desktop: 2-3 column grid */}
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        role="listbox"
+        aria-label="Select a persona"
+        className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
         {personaList.map((persona) => (
           <PersonaCard
             key={persona.id}

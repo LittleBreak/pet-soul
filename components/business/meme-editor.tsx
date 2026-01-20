@@ -204,14 +204,17 @@ function MemeEditor({
       {/* Controls */}
       <Card className="p-4">
         {/* Tab buttons */}
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4" role="tablist" aria-label="Meme editor options">
           <Button
             variant={activeTab === "font" ? "default" : "ghost"}
             size="sm"
             onClick={() => setActiveTab("font")}
             className="flex-1"
+            role="tab"
+            aria-selected={activeTab === "font"}
+            aria-controls="font-panel"
           >
-            <Type className="size-4 mr-1" />
+            <Type className="size-4 mr-1" aria-hidden="true" />
             Font
           </Button>
           <Button
@@ -219,8 +222,11 @@ function MemeEditor({
             size="sm"
             onClick={() => setActiveTab("filter")}
             className="flex-1"
+            role="tab"
+            aria-selected={activeTab === "filter"}
+            aria-controls="filter-panel"
           >
-            <Wand2 className="size-4 mr-1" />
+            <Wand2 className="size-4 mr-1" aria-hidden="true" />
             Filter
           </Button>
         </div>
@@ -228,6 +234,9 @@ function MemeEditor({
         {/* Font controls */}
         {activeTab === "font" && (
           <motion.div
+            id="font-panel"
+            role="tabpanel"
+            aria-label="Font settings"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-4"
@@ -300,6 +309,9 @@ function MemeEditor({
         {/* Filter controls */}
         {activeTab === "filter" && (
           <motion.div
+            id="filter-panel"
+            role="tabpanel"
+            aria-label="Filter settings"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-4"

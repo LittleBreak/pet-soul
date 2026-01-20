@@ -28,6 +28,19 @@ function PersonaCard({
       data-selected={selected || undefined}
       hover={onSelect ? "lift" : "none"}
       onClick={onSelect}
+      role={onSelect ? "option" : undefined}
+      aria-selected={onSelect ? selected : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      onKeyDown={
+        onSelect
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault()
+                onSelect()
+              }
+            }
+          : undefined
+      }
       className={cn(
         "relative p-4 transition-all",
         selected && "ring-2 ring-primary border-primary",

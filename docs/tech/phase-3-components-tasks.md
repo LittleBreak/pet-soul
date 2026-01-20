@@ -49,13 +49,13 @@ Based on: `docs/tech/phase-3-components-zh.md`
 
 ## 6. Development & Testing
 
-- [ ] 6.1 Create `/app/design-system/page.tsx` preview page
-- [ ] 6.2 Add all Atoms to preview page with multiple states
-- [ ] 6.3 Add all Molecules to preview page with mock data
-- [ ] 6.4 Verify responsive behavior (375px mobile, 1024px+ desktop)
-- [ ] 6.5 Add aria-labels to interactive elements
-- [ ] 6.6 Add alt attributes to all images
-- [ ] 6.7 Verify color contrast (WCAG AA)
+- [x] 6.1 Create `/app/design-system/page.tsx` preview page
+- [x] 6.2 Add all Atoms to preview page with multiple states
+- [x] 6.3 Add all Molecules to preview page with mock data
+- [x] 6.4 Verify responsive behavior (375px mobile, 1024px+ desktop)
+- [x] 6.5 Add aria-labels to interactive elements
+- [x] 6.6 Add alt attributes to all images
+- [x] 6.7 Verify color contrast (WCAG AA)
 
 ---
 
