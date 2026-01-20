@@ -8,14 +8,16 @@ describe('useAppStore', () => {
 
   it('should initialize with default values', () => {
     const state = useAppStore.getState();
+    expect(state.step).toBe('upload');
     expect(state.currentPhoto).toBeNull();
     expect(state.selectedPersonaId).toBe('aloof-boss'); // Default ID
     expect(state.isGenerating).toBe(false);
   });
 
-  it('should set photo', () => {
+  it('should set photo and advance step', () => {
     useAppStore.getState().setPhoto('base64:image');
     expect(useAppStore.getState().currentPhoto).toBe('base64:image');
+    expect(useAppStore.getState().step).toBe('persona');
   });
 
   it('should set persona', () => {
@@ -23,7 +25,7 @@ describe('useAppStore', () => {
     expect(useAppStore.getState().selectedPersonaId).toBe('hot-blooded');
   });
 
-  it('should handle generation flow', () => {
+  it('should handle generation flow and advance step', () => {
     useAppStore.getState().startGeneration();
     expect(useAppStore.getState().isGenerating).toBe(true);
 
@@ -34,6 +36,7 @@ describe('useAppStore', () => {
     expect(state.isGenerating).toBe(false);
     expect(state.generatedCaptions).toEqual(captions);
     expect(state.selectedCaptionIndex).toBe(0);
+    expect(state.step).toBe('result');
   });
 
   it('should set generation error', () => {
@@ -64,8 +67,14 @@ describe('useAppStore', () => {
     useAppStore.getState().resetFlow();
     
     const state = useAppStore.getState();
+    expect(state.step).toBe('upload');
     expect(state.currentPhoto).toBeNull();
     expect(state.selectedPersonaId).toBe('aloof-boss');
     expect(state.isGenerating).toBe(false);
+  });
+  
+  it('should allow manual step change', () => {
+    useAppStore.getState().setStep('persona');
+    expect(useAppStore.getState().step).toBe('persona');
   });
 });
