@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetSoul Home Screen</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#38e07b",
+                "background-light": "#f6f8f7",
+                "background-dark": "#122017",
+                },
+                fontFamily: {
+                "display": ["Public Sans", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                boxShadow: {
+                    'glow': '0 0 20px -5px rgba(56, 224, 123, 0.3)',
+                }
+            },
+            },
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&display=swap');
+        
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white h-screen flex flex-col overflow-hidden selection:bg-primary selection:text-background-dark">
+<!-- Top Navigation -->
+<header class="flex-none px-6 pt-6 pb-2 flex items-center justify-between z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+<h1 class="text-2xl font-extrabold tracking-tight text-white">PetSoul</h1>
+</div>
+<button class="relative group">
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-primary transition-colors">
+<img alt="User profile avatar showing a smiling young woman" class="h-full w-full object-cover" data-alt="User profile avatar showing a smiling young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfNzCedpNj7BqH1yU2vrtsxDc1w9dSnNQZOa5fWK4nihv3xJ4OgyyraGz69wTM_XZz--owrstpRw9o_F6DBVfJnMlkF-otUeWq0MzkanSMWwE8eNwp8L652WdOlhSsC8YY32C051Qux0IgsPLHWu0z3gc8LuULXnmkGkdWY6UAzkmK51D_Md_3tH-PNXAlnPrSD2kVKX6wf76mag_JK147X_bBVg2mgyS3z0717M4v8_mzsi1a_YCcAJa0Ep8-efRFVBvJ6_1nmA"/>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 bg-primary border-2 border-background-dark rounded-full"></div>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 py-4 w-full max-w-md mx-auto relative">
+<!-- Decorative background elements -->
+<div class="absolute top-1/4 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Upload Card -->
+<div class="w-full flex-1 max-h-[500px] mb-8 relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-[2.5rem] transform transition-transform duration-500 group-hover:scale-[1.02]"></div>
+<button class="relative w-full h-full border-3 border-dashed border-primary/30 hover:border-primary bg-background-dark/50 backdrop-blur-sm rounded-[2.5rem] flex flex-col items-center justify-center gap-6 transition-all duration-300 group-hover:shadow-glow overflow-hidden">
+<!-- Inner glow circle -->
+<div class="absolute inset-0 bg-radial-gradient from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10 flex flex-col items-center gap-6 p-6">
+<div class="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300 transform group-hover:-translate-y-2">
+<span class="material-symbols-outlined text-[3rem]" style="font-variation-settings: 'wght' 300;">photo_camera</span>
+</div>
+<div class="text-center space-y-2 max-w-[240px]">
+<h2 class="text-xl font-bold text-white leading-tight">Upload pet photo</h2>
+<p class="text-white/50 text-sm font-medium leading-relaxed">Tap the camera to capture their inner thoughts</p>
+</div>
+</div>
+<!-- Decorative corner accents -->
+<svg class="absolute top-6 left-6 w-6 h-6 text-primary/30" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M2 10V2H10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<svg class="absolute top-6 right-6 w-6 h-6 text-primary/30" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M22 10V2H14" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<svg class="absolute bottom-6 left-6 w-6 h-6 text-primary/30" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M2 14V22H10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<svg class="absolute bottom-6 right-6 w-6 h-6 text-primary/30" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M22 14V22H14" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex gap-4 mb-4">
+<button class="flex-1 h-14 bg-primary hover:bg-primary/90 text-background-dark rounded-full font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">shutter_speed</span>
+<span>Take Photo</span>
+</button>
+<button class="flex-1 h-14 bg-transparent border border-primary text-primary hover:bg-primary/10 rounded-full font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl">photo_library</span>
+<span>Album</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="flex-none bg-[#17271d] border-t border-white/5 pb-6 pt-2 px-6">
+<ul class="flex justify-between items-center">
+<!-- Home (Active) -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-primary group" href="#">
+<div class="relative p-1">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="absolute -top-1 -right-1 h-2 w-2 bg-primary rounded-full animate-pulse"></span>
+</div>
+<span class="text-[10px] font-bold tracking-wide uppercase">Home</span>
+</a>
+</li>
+<!-- History -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-white/40 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">history</span>
+<span class="text-[10px] font-medium tracking-wide uppercase">History</span>
+</a>
+</li>
+<!-- Archives -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-white/40 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">inventory_2</span>
+<span class="text-[10px] font-medium tracking-wide uppercase">Archives</span>
+</a>
+</li>
+<!-- Profile -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-white/40 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">person</span>
+<span class="text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</a>
+</li>
+</ul>
+<!-- iOS Home Indicator -->
+<div class="w-full flex justify-center mt-2">
+<div class="w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</nav>
+</body></html>

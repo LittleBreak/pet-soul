@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VIP Subscription</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#38e07b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#122017",
+                        "vip-gold": "#FFD700",
+                        "vip-orange": "#FFA500",
+                        "cream": "#FFF8E7",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom gradient text for added flair */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#122118] dark:text-white font-display overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<div class="relative flex min-h-screen w-full flex-col pb-24">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-20 flex items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md p-4 justify-between transition-colors">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight">VIP Access</h2>
+<button class="flex items-center justify-end rounded-full px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
+<p class="text-xs font-bold uppercase tracking-wider opacity-60">Restore</p>
+</button>
+</div>
+<!-- Hero Section -->
+<div class="relative w-full px-4 pt-4">
+<!-- Decorative background blob -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-b from-orange-500/20 to-transparent blur-3xl -z-10 rounded-full"></div>
+<div class="bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl overflow-hidden shadow-2xl shadow-orange-500/20 relative min-h-[260px] flex flex-col justify-between p-6">
+<!-- Abstract Pattern Overlay -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, black 1px, transparent 0); background-size: 20px 20px;"></div>
+<div class="relative z-10">
+<span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-[10px] font-bold text-white uppercase tracking-widest mb-2 border border-white/30">Premium</span>
+<h1 class="text-white text-3xl font-black leading-tight tracking-tight drop-shadow-md">Unlock Their<br/>Inner Voice</h1>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] w-48 h-48 rotate-12">
+<img class="w-full h-full object-cover rounded-2xl shadow-lg border-4 border-white/20 mask-image-gradient" data-alt="Happy golden retriever dog wearing cool sunglasses smiling confidently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-cf1XRIUn26BKeByXn8ovcRjKVB1s4fa6GjeCpkiEurVfxtZx1o2oPrzsroiEI6oBjPUdUsEouLhGD2IKA7nKlqLHFrn3u6q5NWcx07iN3QMT2bmFUyHFMZbts_eiKsKlySpO9T1QIefOZUtkaSPw2FHj5YsMZ-EHojAlIXbEmDjGfHqKZxQs0uGLsfpFJNxVtKIC4um5KTar0BYufA_jVTgLlMb2GdlqMajGeQLDK0c6K2jPjH_LfxX5slUfv0ZFZ3Pad01vg" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"/>
+</div>
+</div>
+</div>
+<!-- Benefits List -->
+<div class="px-6 py-8">
+<h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4 ml-1">Member Privileges</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-2xl bg-white/5 dark:bg-white/5 border border-transparent hover:border-amber-500/30 transition-colors">
+<div class="flex items-center justify-center size-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-background-dark shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined text-xl">translate</span>
+</div>
+<div>
+<p class="font-bold text-base">Unlimited Translations</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Understand every woof instantly</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-2xl bg-white/5 dark:bg-white/5 border border-transparent hover:border-amber-500/30 transition-colors">
+<div class="flex items-center justify-center size-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-background-dark shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined text-xl">monitor_heart</span>
+</div>
+<div>
+<p class="font-bold text-base">Daily Mood Analysis</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Deep emotional insights</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-2xl bg-white/5 dark:bg-white/5 border border-transparent hover:border-amber-500/30 transition-colors">
+<div class="flex items-center justify-center size-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-background-dark shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined text-xl">block</span>
+</div>
+<div>
+<p class="font-bold text-base">Ad-Free Experience</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Zero distractions, 100% cute</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Cards -->
+<div class="px-4 pb-4">
+<div class="grid grid-cols-2 gap-4">
+<!-- Monthly Plan -->
+<button class="relative flex flex-col justify-between p-5 rounded-[2rem] border-2 border-white/10 dark:border-white/10 bg-white dark:bg-[#1b2b22] hover:bg-gray-50 dark:hover:bg-[#23352b] transition-all group text-left">
+<div class="space-y-1">
+<span class="text-sm font-semibold text-gray-500 dark:text-gray-400">Monthly</span>
+<p class="text-3xl font-black tracking-tight">¥12</p>
+<p class="text-xs text-gray-400">Billed monthly</p>
+</div>
+<div class="mt-4 size-6 rounded-full border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary transition-colors flex items-center justify-center">
+<div class="size-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</button>
+<!-- Yearly Plan (Recommended) -->
+<button class="relative flex flex-col justify-between p-5 rounded-[2rem] border-4 border-transparent bg-cream text-[#122017] shadow-xl shadow-orange-500/10 text-left overflow-hidden ring-2 ring-orange-500 ring-offset-2 ring-offset-[#122017]">
+<!-- Gradient Glow Effect -->
+<div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-orange-200 to-transparent opacity-50 rounded-bl-full"></div>
+<div class="absolute top-0 right-0 bg-primary text-[#122017] text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg">
+                        RECOMMENDED
+                    </div>
+<div class="space-y-1 relative z-10">
+<span class="text-sm font-bold text-orange-800/70">Yearly</span>
+<div class="flex items-baseline gap-1">
+<p class="text-3xl font-black tracking-tight text-[#122017]">¥98</p>
+<span class="text-xs font-bold line-through text-orange-900/40">¥144</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-orange-500/10 px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-[10px] text-orange-700">savings</span>
+<p class="text-[10px] font-bold text-orange-700">Save 32%</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="size-6 rounded-full bg-[#122017] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-xs font-bold text-[#122017]">Best Value</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Sticky Footer CTA -->
+<div class="fixed bottom-[88px] left-0 right-0 px-4 pt-4 pb-2 bg-gradient-to-t from-background-dark via-background-dark/90 to-transparent z-10">
+<button class="w-full h-14 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 rounded-full flex items-center justify-between px-2 pr-6 shadow-lg shadow-orange-500/25 transition-transform active:scale-[0.98]">
+<div class="size-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-white">pets</span>
+</div>
+<span class="text-[#122017] font-extrabold text-lg tracking-wide uppercase">Join Now</span>
+<span class="material-symbols-outlined text-[#122017]">arrow_forward</span>
+</button>
+<p class="text-center text-[10px] text-gray-500 mt-3">Cancel anytime in Settings. Terms apply.</p>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 w-full bg-[#122017]/95 backdrop-blur-lg border-t border-white/5 flex justify-between items-center px-6 py-4 pb-8 z-20">
+<button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">mic</span>
+<span class="text-[10px] font-medium">Talk</span>
+</button>
+<!-- VIP Button (Active) -->
+<button class="flex flex-col items-center gap-1 text-primary relative -top-5">
+<div class="size-12 rounded-full bg-[#122017] border-4 border-[#122017] flex items-center justify-center shadow-lg shadow-primary/20 relative z-10">
+<div class="absolute inset-0 bg-primary rounded-full opacity-20 animate-pulse"></div>
+<span class="material-symbols-outlined text-2xl fill-current">diamond</span>
+</div>
+<span class="text-[10px] font-bold">VIP</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">forum</span>
+<span class="text-[10px] font-medium">Social</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</div>
+</body></html>
