@@ -9,32 +9,56 @@
 ## 1. 设计系统与全局样式 (Design System)
 
 在开始组件开发前，需确立全局设计令牌 (Design Tokens)。
+> 设计稿参考: `docs/ux/pet_profile_editor/`
 
 ### 1.1 核心配色 (Color Palette)
-采用温暖、活力且具有现代感的配色方案，适配 Dark/Light 模式。
+采用清新、自然的绿色系配色方案，支持 Dark Mode First 设计，通过 class 切换主题。
 
-- **Primary (品牌主色)**:
-  - `primary-500`: `#FF6B6B` (活力珊瑚红 - 用于主按钮、强调行动)
-  - `primary-100`: `#FFF0F0` (浅色背景、Hover 态)
-- **Secondary (辅助色)**:
-  - `secondary-500`: `#4ECDC4` (清爽薄荷绿 - 用于成功状态、次要高亮)
-  - `accent-500`: `#FFE66D` (明亮黄 - 用于强调"灵感"、VIP 标识)
+- **Primary (品牌主色 - 清新薄荷绿)**:
+  - `primary-500`: `#38e07b` (主色调 - 用于主按钮、强调行动、选中状态)
+  - `primary-400`: `#38e07b` (Hover 态)
+  - `primary-100`: `#d3fbe4` (浅色背景)
+  - `primary-950`: `#03361a` (深色文字对比)
+- **Background (背景色)**:
+  - `background-light`: `#f6f8f7` (Light mode 页面背景)
+  - `background-dark`: `#122017` (Dark mode 页面背景)
+- **Surface (表面/卡片色)**:
+  - `surface-light`: `#ffffff` (Light mode 卡片/输入框)
+  - `surface-dark`: `#1c3024` (Dark mode 卡片/输入框)
+  - `surface-dark-hover`: `#25382d` (Dark mode Hover 态)
 - **Neutral (中性色)**:
-  - `slate-900`: 用于正文文本 (Dark mode 背景)
-  - `slate-50`: 用于页面背景 (Light mode)
-  - `glass`: `rgba(255, 255, 255, 0.7)` + `backdrop-blur-md` (玻璃拟态效果)
+  - `slate-900`: 用于 Light mode 正文文本
+  - `white`: 用于 Dark mode 正文文本
+  - `slate-400/500`: 用于辅助文字、标签
+- **Glass Effect (玻璃拟态)**:
+  - Light: `rgba(246, 248, 247, 0.9)` + `backdrop-blur-md`
+  - Dark: `rgba(18, 32, 23, 0.8)` + `backdrop-blur-lg`
 
 ### 1.2 排版 (Typography)
-- **Font Family**: 使用 Google Fonts `Outfit` (标题) + `Inter` (正文)。
+- **Font Family**: 使用 Google Fonts `Public Sans` (标题/Display) + `Noto Sans` (正文/Body)。
 - **Scale**:
-  - `h1`: 24px (Mobile) / 32px (Desktop) - 页面标题
-  - `h2`: 20px / 24px - 模块标题
-  - `body`: 16px - 标准正文
-  - `caption`: 14px - 辅助文字
+  - `h1`: 18px-20px (lg:text-lg) - 页面标题
+  - `h2`: 18px (text-lg font-bold) - 模块标题
+  - `body`: 16px (text-base) - 标准正文
+  - `label`: 14px (text-sm) - 表单标签
+  - `caption`: 12px (text-xs) - 辅助文字、底部导航
+  - `micro`: 10px (text-[10px]) - 极小文字
 
-### 1.3 交互动效 (Animations)
-- **Micro-interactions**: 按钮点击缩放 (`active:scale-95`)，卡片 Hover 上浮。
-- **Transitions**: 页面切换使用 `framer-motion` 实现平滑过渡。
+### 1.3 圆角系统 (Border Radius)
+新设计采用更大的圆角，营造友好、现代的视觉感受：
+- `rounded-xl`: 12px - 按钮内部元素
+- `rounded-2xl`: 16px - 输入框、卡片、选择器
+- `rounded-full`: 9999px - 头像、标签 pills、圆形按钮
+
+### 1.4 交互动效 (Animations)
+- **Micro-interactions**: 按钮点击缩放 (`active:scale-95`)，图标 Hover 放大 (`hover:scale-105`)
+- **Transitions**: 统一使用 `transition-colors duration-200` 或 `transition-all`
+- **Glass blur**: Header/底部导航使用 `backdrop-blur-md` / `backdrop-blur-lg`
+
+### 1.5 Dark Mode 策略
+- **Class-based**: 使用 `.dark` 类控制暗色模式，支持手动切换
+- **Auto fallback**: 同时支持 `prefers-color-scheme: dark` 媒体查询
+- **Default**: 设计稿以 Dark mode 为主，但代码支持双模式
 
 ---
 
