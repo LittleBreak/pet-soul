@@ -76,12 +76,48 @@
 
 ## 第五阶段：页面装配与路由（Assembly）
 
-1. **页面组合：** 告诉 AI："现在请帮我创建 `Dashboard` 页面，调用 `useTasks` Hook 获取数据，并循环渲染 `TaskCard` 组件。"
-2. **路由配置：** 设置页面间的跳转逻辑。
+根据项目结构和 PRD 需求，将业务组件组装成完整页面，并配置路由跳转。
+
+1. **首页 (Home Page):**
+   *   **文件:** `app/page.tsx`
+   *   **布局:** `MainLayout` (包含 Header/Footer)。内容区域全屏居中，突出上传区域。
+   *   **业务组件:**
+       *   `<PhotoUploader />`: 核心组件，处理拍照/相册选择。
+       *   `<UsageLimitBanner />`: 展示每日剩余次数。
+   *   **逻辑:** 图片上传压缩成功后，将图片数据存入 Store，并跳转至 `/generate`。
+
+2. **生成配置页 (Generate Page):**
+   *   **文件:** `app/generate/page.tsx`
+   *   **布局:** 分步引导布局。顶部为图片预览，下部为人设选择面板。
+   *   **业务组件:**
+       *   `<PersonaSelector />`: 6种人设卡片选择。
+       *   `<AnalyzeLoading />`: AI 生成时的加载动画状态。
+   *   **逻辑:** 用户确认人设后，调用 `useGenerateMeme` Hook。生成成功跳转 `/result`，失败展示 Toast。
+
+3. **结果展示页 (Result Page):**
+   *   **文件:** `app/result/page.tsx`
+   *   **布局:** 沉浸式图片展示布局。
+   *   **业务组件:**
+       *   `<ResultCarousel />`: Swiper 展示 3 个版本的图文结果。
+       *   `<ActionPanel />`: 包含"重试"和"制作梗图"按钮。
+   *   **逻辑:** 滑动切换版本，点击"制作梗图"将当前选中索引存入 Store，跳转 `/meme`。
+
+4. **梗图编辑页 (Meme Editor Page):**
+   *   **文件:** `app/meme/page.tsx`
+   *   **布局:** 编辑器布局。中间为 Canvas 区域，底部为工具栏。
+   *   **业务组件:**
+       *   `<MemeCanvas />`: 基于 Konva 的绘图区域，支持文字拖拽。
+       *   `<ShareSheet />`: 调起原生分享或保存图片。
+   *   **逻辑:** 渲染最终图片，支持导出保存。
+
+**路由跳转流:**
+`Home (/)` -> `Generate (/generate)` -> `Result (/result)` -> `Meme (/meme)`
 
 **产出物：**
-- `app/[route]/page.tsx` - 页面组件
-- 路由跳转逻辑
+- `app/page.tsx`
+- `app/generate/page.tsx`
+- `app/result/page.tsx`
+- `app/meme/page.tsx`
 
 ---
 
