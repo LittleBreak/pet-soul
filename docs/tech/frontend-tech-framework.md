@@ -258,36 +258,3 @@ pet-soul/
   }
 }
 ```
-
----
-
-## 7. MVP 精简方案
-
-如需快速启动 MVP，可精简为：
-
-| 模块 | MVP 方案 | 完整方案 |
-| --- | --- | --- |
-| 状态管理 | Zustand only | Zustand + TanStack Query |
-| 图片存储 | Base64 本地传输 | Cloudflare R2 云存储 |
-| 用户限额 | localStorage | Upstash Redis |
-| 内容审核 | 简单敏感词 | 云端审核服务 |
-| PWA | 基础 manifest | next-pwa 完整配置 |
-
-**MVP 最小依赖：**
-
-```json
-{
-  "dependencies": {
-    "next": "^16.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "zustand": "^5.0.0",
-    "zod": "^3.23.0",
-    "konva": "^9.0.0",
-    "react-konva": "^18.0.0",
-    "lucide-react": "^0.400.0",
-    "clsx": "^2.1.0",
-    "tailwind-merge": "^2.2.0"
-  }
-}
-```

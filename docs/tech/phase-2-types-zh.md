@@ -5,7 +5,7 @@
 | **状态** | `草稿` |
 | **阶段** | 第二阶段（Types） |
 | **最后更新** | 2026-01-19 |
-| **关联文档** | [MVP 方案](./phase-1-mvp-zh.md) · [技术框架](./frontend-tech-stack-zh.md) · [PRD](../prd-zh.md) |
+| **关联文档** | [MVP 方案](./phase-1-mvp-zh.md) · [技术框架](./frontend-tech-framework.md) · [PRD](../prd-zh.md) |
 
 ---
 
@@ -1266,6 +1266,6 @@ interface UploadStore extends FlowState {
 | 文档 | 内容 |
 | --- | --- |
 | [phase-1-mvp-zh.md](./phase-1-mvp-zh.md) | MVP 功能范围与技术方案 |
-| [frontend-tech-stack-zh.md](./frontend-tech-stack-zh.md) | 技术选型概览 |
+| [frontend-tech-framework.md](./frontend-tech-framework.md) | 技术选型概览 |
 | [init-dev-order.md](./init-dev-order.md) | 开发顺序指南 |
 | [PRD](../prd-zh.md) | 产品需求文档 |
