@@ -15,6 +15,8 @@ import { PERSONAS } from '@/lib/constants/personas'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ArrowLeft, Loader2, RefreshCw, Sparkles } from '@/components/shared/icons'
+import { Logo } from '@/components/shared'
+import { Avatar } from '@/components/ui/avatar'
 import type { Monologue } from '@/types'
 
 export default function HomePage() {
@@ -40,29 +42,32 @@ function UploadView() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-8">
-      <div className="w-full max-w-md space-y-8">
-        {/* Branding */}
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-heading font-bold">
-            PetSoul
-          </h1>
-          <p className="text-muted-foreground">
-            给你的宠物配上灵魂独白
-          </p>
-        </div>
+    <div className="flex min-h-screen flex-col px-6 pt-6 pb-4">
+      {/* Header */}
+      <header className="flex items-center justify-between">
+        <Logo size="lg" />
+        <button className="relative group">
+          <Avatar className="size-10 border-2 border-white/10 group-hover:border-primary transition-colors">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=petsoul"
+              alt="User avatar"
+              className="size-full object-cover"
+            />
+          </Avatar>
+          {/* Online indicator */}
+          <span className="absolute -bottom-0.5 -right-0.5 size-3.5 bg-primary border-2 border-background rounded-full" />
+        </button>
+      </header>
 
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col items-center justify-center w-full max-w-md mx-auto py-4">
         {/* Photo Uploader */}
         <PhotoUploader
           onFileSelect={handleFileSelect}
-          className="w-full"
+          className="w-full flex-1 max-h-125"
         />
-
-        {/* Subtitle */}
-        <p className="text-center text-sm text-muted-foreground">
-          上传一张宠物照片，AI 将为它生成专属内心戏
-        </p>
-      </div>
+      </main>
     </div>
   )
 }
