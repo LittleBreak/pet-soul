@@ -10,30 +10,10 @@
 :root {
   /* Core Colors */
   --primary: #38e07b;
-  --background-light: #f6f8f7;
   --background-dark: #122017;
-  --surface-light: #ffffff;
   --surface-dark: #1c3024;
 
-  /* Semantic Colors - Light Mode */
-  --background: var(--background-light);
-  --foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --card: var(--surface-light);
-  --card-foreground: #0f172a;
-  --border: #e2e8f0;
-  --ring: var(--primary);
-
-  /* Glass Effect */
-  --glass-bg: rgba(246, 248, 247, 0.9);
-  --glass-border: rgba(255, 255, 255, 0.2);
-}
-
-/* -----------------------------------------------------------------------------
-   2. Dark Mode Variables (Class-based)
-   ----------------------------------------------------------------------------- */
-.dark {
+  /* Semantic Colors - Dark Theme (Default) */
   --background: var(--background-dark);
   --foreground: #ffffff;
   --muted: var(--surface-dark);
@@ -42,19 +22,20 @@
   --card-foreground: #ffffff;
   --border: rgba(255, 255, 255, 0.05);
   --ring: var(--primary);
+
+  /* Glass Effect */
   --glass-bg: rgba(18, 32, 23, 0.8);
   --glass-border: rgba(255, 255, 255, 0.05);
 }
 
 /* -----------------------------------------------------------------------------
-   3. Tailwind Theme Configuration (v4 @theme directive)
+   2. Tailwind Theme Configuration (v4 @theme directive)
    ----------------------------------------------------------------------------- */
 @theme inline {
   /* Colors */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--background-dark);
   --color-background: var(--background);
-  --color-background-light: var(--background-light);
   --color-background-dark: var(--background-dark);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -78,7 +59,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   4. Keyframe Animations
+   3. Keyframe Animations
    ----------------------------------------------------------------------------- */
 @keyframes spin {
   to {
@@ -147,7 +128,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   5. Base Styles
+   4. Base Styles
    ----------------------------------------------------------------------------- */
 body {
   background: var(--background);
@@ -155,11 +136,10 @@ body {
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 200ms, color 200ms;
 }
 
 /* -----------------------------------------------------------------------------
-   6. Utility Classes
+   5. Utility Classes
    ----------------------------------------------------------------------------- */
 
 /* Glass Effect */
