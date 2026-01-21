@@ -2,7 +2,12 @@ import { create } from 'zustand';
 import { PersonaId } from '@/types';
 import { DEFAULT_PERSONA_ID } from '@/lib/constants/personas';
 
+export type CreationStep = 'upload' | 'persona' | 'result';
+
 interface AppState {
+  // 0. 全局状态
+  step: CreationStep;
+
   // 1. 照片上传阶段
   currentPhoto: string | null; // 图片的 Base64 或 Blob URL
   
@@ -22,6 +27,7 @@ interface AppState {
 }
 
 interface AppActions {
+  setStep: (step: CreationStep) => void;
   setPhoto: (photo: string) => void;
   setPersona: (id: PersonaId) => void;
   startGeneration: () => void;
@@ -33,6 +39,7 @@ interface AppActions {
 }
 
 export const useAppStore = create<AppState & AppActions>((set) => ({
+  step: 'upload',
   currentPhoto: null,
   selectedPersonaId: DEFAULT_PERSONA_ID,
   isGenerating: false,
@@ -41,8 +48,11 @@ export const useAppStore = create<AppState & AppActions>((set) => ({
   selectedCaptionIndex: 0,
   finalMemeImage: null,
 
+  setStep: (step) => set({ step }),
+
   setPhoto: (photo) => set({ 
     currentPhoto: photo,
+    step: 'persona', // Auto-advance
     // Reset generation state when new photo is set
     isGenerating: false,
     generationError: null,
@@ -63,7 +73,8 @@ export const useAppStore = create<AppState & AppActions>((set) => ({
   setGenerationResults: (captions) => set({ 
     isGenerating: false, 
     generatedCaptions: captions,
-    selectedCaptionIndex: 0
+    selectedCaptionIndex: 0,
+    step: 'result' // Auto-advance
   }),
 
   setGenerationError: (msg) => set({ 
@@ -76,6 +87,7 @@ export const useAppStore = create<AppState & AppActions>((set) => ({
   setFinalMeme: (image) => set({ finalMemeImage: image }),
 
   resetFlow: () => set({
+    step: 'upload',
     currentPhoto: null,
     selectedPersonaId: DEFAULT_PERSONA_ID,
     isGenerating: false,

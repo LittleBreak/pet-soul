@@ -11,6 +11,7 @@ describe('useUserStore', () => {
       },
       myPets: [],
       remainingFreeQuota: 5,
+      history: [],
     });
   });
 
@@ -22,6 +23,7 @@ describe('useUserStore', () => {
     });
     expect(state.myPets).toEqual([]);
     expect(state.remainingFreeQuota).toBe(5);
+    expect(state.history).toEqual([]);
   });
 
   it('should decrement quota', () => {
@@ -52,5 +54,21 @@ describe('useUserStore', () => {
 
     expect(useUserStore.getState().myPets).toHaveLength(2);
     expect(useUserStore.getState().myPets[1]).toEqual(anotherPet);
+  });
+
+  it('should add to history', () => {
+    const record1 = { id: '1', imageUrl: 'url1', createdAt: 100 };
+    useUserStore.getState().addToHistory(record1);
+    
+    expect(useUserStore.getState().history).toHaveLength(1);
+    expect(useUserStore.getState().history[0]).toEqual(record1);
+
+    const record2 = { id: '2', imageUrl: 'url2', createdAt: 200 };
+    useUserStore.getState().addToHistory(record2);
+
+    expect(useUserStore.getState().history).toHaveLength(2);
+    // Should be prepended (newest first)
+    expect(useUserStore.getState().history[0]).toEqual(record2);
+    expect(useUserStore.getState().history[1]).toEqual(record1);
   });
 });

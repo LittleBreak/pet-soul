@@ -215,9 +215,20 @@ export interface DailyUsage {
 export type UserTier = 'free' | 'premium';
 
 /**
+ * 用户基本信息
+ */
+export interface UserProfile {
+  id: string;
+  nickname: string;
+  avatarUrl?: string;
+}
+
+/**
  * 用户状态
  */
 export interface UserState {
+  /** 用户基本信息 */
+  profile?: UserProfile;
   /** 用户类型 */
   tier: UserTier;
   /** 今日使用情况 */
@@ -270,12 +281,9 @@ export type ImageProcessingStatus =
  * 生成流程步骤
  */
 export type GenerationStep =
-  | 'upload'    // 上传图片
-  | 'persona'   // 选择人设
-  | 'generate'  // 生成中
-  | 'result'    // 查看结果
-  | 'meme'      // 编辑梗图
-  | 'share';    // 分享
+  | 'upload'    // 初始/上传态
+  | 'persona'   // 人设选择态
+  | 'result';   // 结果与编辑态
 
 /**
  * 生成状态

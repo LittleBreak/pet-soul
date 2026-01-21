@@ -126,33 +126,27 @@
 ```
 pet-soul/
 ├── app/                          # Next.js App Router
-│   ├── (main)/                   # 主应用路由组
-│   │   ├── page.tsx              # 首页（上传入口）
-│   │   ├── generate/page.tsx     # 生成页面
-│   │   ├── result/page.tsx       # 结果展示页
-│   │   └── meme/page.tsx         # 梗图编辑器
+│   ├── page.tsx                  # 聚合首页（单页多状态：上传 -> 人设 -> 结果 -> 编辑）
+│   ├── design-system/page.tsx    # 设计系统/组件预览
 │   ├── api/                      # API Routes
 │   │   ├── generate/route.ts     # AI 生成接口
 │   │   ├── upload/route.ts       # 图片上传接口
-│   │   └── user/route.ts         # 用户相关接口
+│   │   └── usage/route.ts        # 使用次数接口
 │   ├── layout.tsx                # 根布局
 │   └── manifest.ts               # PWA manifest
 │
 ├── components/                   # 组件目录
-│   ├── ui/                       # 基础 UI 组件
-│   ├── upload/                   # 上传相关组件
-│   ├── persona/                  # 人设选择组件
-│   ├── result/                   # 结果展示组件
-│   ├── meme/                     # 梗图编辑组件
-│   └── share/                    # 分享组件
+│   ├── business/                 # 业务逻辑组件 (PhotoUploader, PersonaSelector, MemeEditor等)
+│   ├── shared/                   # 共享组件 (Icons, Logo)
+│   └── ui/                       # 基础 UI 组件 (shadcn/ui)
 │
 ├── lib/                          # 工具库
-│   ├── api/                      # API 客户端
-│   ├── hooks/                    # 自定义 Hooks
-│   ├── stores/                   # Zustand stores
-│   ├── utils/                    # 工具函数
+│   ├── hooks/                    # 业务 Hooks (use-ai-analysis, use-meme-generator等)
+│   ├── stores/                   # 状态管理 (use-app-store, use-user-store)
+│   ├── utils.ts                  # 工具函数
 │   ├── constants/                # 常量配置
-│   └── validations/              # Zod schemas
+│   ├── validations/              # Zod schemas
+│   └── mocks/                    # Mock 数据
 │
 └── types/                        # TypeScript 类型定义
 ```

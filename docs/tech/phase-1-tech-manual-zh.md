@@ -93,11 +93,11 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.2 核心用户流程
+### 2.2 核心用户流程（单页状态机）
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│  首页    │ →  │ 上传照片  │ →  │ 选择人设  │ →  │ 查看结果  │ →  │ 分享/保存 │
+│  初始态  │ →  │ 上传态    │ →  │ 人设态    │ →  │ 结果态    │ →  │ 编辑态    │
 │          │    │          │    │          │    │          │    │          │
 │ 入口引导 │    │ 拍照/相册 │    │ 6种人设  │    │ 3个版本  │    │ 梗图生成 │
 └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘
@@ -111,10 +111,8 @@
 ```
 pet-soul/
 ├── app/
-│   ├── page.tsx                    # 首页（上传入口）
-│   ├── generate/page.tsx           # 生成流程页
-│   ├── result/page.tsx             # 结果展示页
-│   ├── meme/page.tsx               # 梗图编辑页
+│   ├── page.tsx                    # 聚合首页（单页多状态：上传 -> 人设 -> 结果 -> 编辑）
+│   ├── design-system/page.tsx      # 设计系统/组件预览
 │   ├── api/
 │   │   ├── generate/route.ts       # AI 生成接口
 │   │   ├── upload/route.ts         # 图片上传接口
@@ -123,22 +121,17 @@ pet-soul/
 │   └── manifest.ts                 # PWA manifest
 │
 ├── components/
-│   ├── ui/                         # 基础 UI 组件
-│   ├── upload/                     # 上传模块
-│   ├── persona/                    # 人设模块
-│   ├── result/                     # 结果模块
-│   ├── meme/                       # 梗图模块
-│   ├── share/                      # 分享模块
-│   └── common/                     # 通用组件
+│   ├── business/                   # 业务逻辑组件
+│   ├── shared/                     # 共享组件（图标、Logo等）
+│   └── ui/                         # 基础 UI 组件 (shadcn/ui)
 │
 ├── lib/
-│   ├── api/                        # API 客户端
-│   ├── hooks/                      # 自定义 Hooks
-│   ├── stores/                     # Zustand stores
-│   ├── utils/                      # 工具函数
+│   ├── hooks/                      # 业务 Hooks (use-ai-analysis 等)
+│   ├── stores/                     # 状态管理 (use-app-store, use-user-store)
+│   ├── utils.ts                    # 工具函数
 │   ├── constants/                  # 常量配置
 │   ├── validations/                # Zod schemas
-│   └── analytics/                  # 埋点
+│   └── mocks/                      # Mock 数据
 │
 └── types/                          # TypeScript 类型
 ```
@@ -224,13 +217,13 @@ pet-soul/
 
 | Store | 职责 |
 | --- | --- |
-| `upload-store` | 图片状态、人设选择、生成结果、流程步骤 |
-| `meme-store` | 编辑器状态、文字样式、水印开关 |
+| `use-app-store` | 图片状态、人设选择、生成结果、梗图编辑、流程步骤控制 |
+| `use-user-store` | 用户信息、宠物档案、每日免费额度（Quota）管理 |
 
 **状态分层：**
-- Server State：TanStack Query（API 缓存）
-- Client State：Zustand（跨组件状态）
-- Local State：useState（组件内部）
+- Server State：TanStack Query（API 请求与缓存）
+- Client State：Zustand（全局跨组件业务状态）
+- UI State：React useState（组件内局部交互状态）
 
 ---
 
