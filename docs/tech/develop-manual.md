@@ -78,21 +78,50 @@
 
 根据项目结构和功能需求，将业务组件、Hooks 和全局状态组装成完整页面，并配置路由逻辑。
 
-1. **页面布局编排：** 
+1. **页面依赖清单：**
+   - 在编写页面代码前，先以页面维度梳理所有依赖项。
+   - 列出该页面需要使用的所有组件（UI 组件、业务组件）。
+   - 列出该页面需要连接的 Store 和 Hooks。
+   - **执行命令：** "请为 `[页面名称]` 页面生成依赖清单，包括：需要引入的组件列表、需要使用的 Store、需要调用的 Hooks，并说明各依赖项的职责。"
+
+   **示例格式：**
+   ```markdown
+   ## 页面：/generate（生成页）
+
+   ### 组件依赖
+   | 组件名 | 路径 | 职责 |
+   |--------|------|------|
+   | PersonaSelector | @/components/persona | 人格选择器 |
+   | LoadingSpinner | @/components/ui | 加载状态展示 |
+
+   ### Store 依赖
+   | Store | 路径 | 使用的状态/方法 |
+   |-------|------|-----------------|
+   | useUploadStore | @/lib/stores/upload | imageUrl, imageFile |
+   | useGenerateStore | @/lib/stores/generate | persona, setPersona, generate |
+
+   ### Hooks 依赖
+   | Hook | 路径 | 用途 |
+   |------|------|------|
+   | useGeneration | @/lib/hooks/useGeneration | 处理生成请求和状态 |
+   ```
+
+2. **页面布局编排：**
    - 确定页面的整体布局结构（如 Header, Footer, Sidebar）。
    - 将业务组件（Molecules/Organisms）按 UI 设计稿放入页面对应位置。
-   
-2. **注入业务逻辑：**
+
+3. **注入业务逻辑：**
    - 在页面组件中连接 Store 和自定义 Hooks。
    - 协调多个组件间的数据传递、事件回调与副作用处理。
 
-3. **路由与导航控制：**
+4. **路由与导航控制：**
    - 实现页面间的跳转逻辑及参数传递。
    - 配置路由守卫（如权限校验）与页面加载状态。
 
 > **最佳实践：** 页面层应尽可能保持简洁，主要负责"组合"（Composition）而非实现复杂的具体算法逻辑。
 
 **产出物：**
+- `docs/pages/*.md` - 页面依赖清单文档
 - `app/**/page.tsx` - 完整页面入口
 - `app/**/layout.tsx` - 页面共享布局
 
@@ -129,5 +158,5 @@
 | 2 | **类型定义** | 生成 `types/*.ts` 和 Zod Schema | 类型文件、校验 Schema |
 | 3 | **原子组件** | 生成 `Button`, `Input`, `Card` 等 | UI 组件库 |
 | 4 | **Hooks 封装** | 处理数据请求、状态切换逻辑 | Store、Hooks |
-| 5 | **页面组装** | 将零件拼成 `Page`，注入数据 | 完整页面 |
+| 5 | **页面组装** | 先列出页面依赖清单，再将零件拼成 `Page` | 依赖清单、完整页面 |
 
