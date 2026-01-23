@@ -77,4 +77,58 @@ describe('useAppStore', () => {
     useAppStore.getState().setStep('persona');
     expect(useAppStore.getState().step).toBe('persona');
   });
+
+  it('should reset generation state when setting new photo', () => {
+    useAppStore.getState().setGenerationResults(['old caption']);
+    useAppStore.getState().setFinalMeme('old-meme');
+    useAppStore.getState().setPhoto('new-photo');
+    
+    const state = useAppStore.getState();
+    expect(state.generatedCaptions).toEqual([]);
+    expect(state.finalMemeImage).toBeNull();
+    expect(state.isGenerating).toBe(false);
+    expect(state.generationError).toBeNull();
+  });
+
+  it('should complete full creation flow', () => {
+    const store = useAppStore.getState();
+    store.setPhoto('photo-data');
+    store.setPersona('hot-blooded');
+    store.startGeneration();
+    store.setGenerationResults(['A', 'B', 'C']);
+    store.selectCaption(2);
+    store.setFinalMeme('final-meme');
+    
+    const state = useAppStore.getState();
+    expect(state.step).toBe('result');
+    expect(state.currentPhoto).toBe('photo-data');
+    expect(state.selectedPersonaId).toBe('hot-blooded');
+    expect(state.generatedCaptions).toEqual(['A', 'B', 'C']);
+    expect(state.selectedCaptionIndex).toBe(2);
+    expect(state.finalMemeImage).toBe('final-meme');
+  });
+
+  it('should recover from generation error', () => {
+    useAppStore.getState().startGeneration();
+    useAppStore.getState().setGenerationError('Network error');
+    
+    expect(useAppStore.getState().generationError).toBe('Network error');
+    expect(useAppStore.getState().isGenerating).toBe(false);
+    
+    // 重试生成
+    useAppStore.getState().startGeneration();
+    
+    expect(useAppStore.getState().generationError).toBeNull();
+    expect(useAppStore.getState().isGenerating).toBe(true);
+  });
+
+  it('should handle selectCaption with different indices', () => {
+    useAppStore.getState().setGenerationResults(['A', 'B', 'C', 'D']);
+    
+    useAppStore.getState().selectCaption(0);
+    expect(useAppStore.getState().selectedCaptionIndex).toBe(0);
+    
+    useAppStore.getState().selectCaption(3);
+    expect(useAppStore.getState().selectedCaptionIndex).toBe(3);
+  });
 });
